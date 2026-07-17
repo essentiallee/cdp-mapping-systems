@@ -44,10 +44,11 @@ map.on("load", () => {
 });
 
     map.on("click", "restaurants-layer", (e) => {
+      console.log(e.features[0]);
       const coordinates = e.features[0].geometry.coordinates.slice();
       const description = e.features[0].properties.dba;
       new maplibregl.Popup()
         .setLngLat(coordinates)
-        .setHTML(description)
+        .setHTML('<strong>' + description + '</strong>')
         .addTo(map);
-    });w
+    });
